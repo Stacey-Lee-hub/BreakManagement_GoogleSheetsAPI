@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
     @param {string} empId
     @param {Buffer} qrCodeBuffer - QR code as Buffer
 */
-export const sendQREmail = async (toEmail, empId, qrCodeBuffer) => {
+export const sendQREmail = async (toEmail, empId, name, qrCodeBuffer) => {
     try {
         if (!qrCodeBuffer) {
             throw new Error('QR code Buffer is missing');
@@ -33,7 +33,7 @@ export const sendQREmail = async (toEmail, empId, qrCodeBuffer) => {
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background-color: #ffffff;">
                     <h2 style="color: #1a73e8; text-align: center;">Welcome to TimeSync!</h2>
 
-                    <p style="color: #333;">Hi there,</p>
+                    <p style="color: #333;">Hi ${name},</p>
                     <p style="color: #333;">
                         We're thrilled to have you join the <strong>TimeSync</strong> team — your platform for seamless attendance and break management.
                     </p>

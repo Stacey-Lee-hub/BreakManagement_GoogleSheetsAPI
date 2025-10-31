@@ -19,3 +19,13 @@ INSERT INTO employees(id, name, email) VALUES
 ("EMP-127", "Emmanuel Tembo", "emmanuel@gmail.com"),
 ("EMP-128", "Khanya Freddie", "khanya@gmail.com"),
 ("EMP-129", "Neleh Heunis", "neleh@gmail.com");
+
+CREATE TABLE qrcode(
+	qr_id INT NOT NULL AUTO_INCREMENT,
+    emp_id VARCHAR(25) NOT NULL UNIQUE,
+    scan_url VARCHAR(225) NOT NULL,
+    qr_image LONGBLOB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (qr_id),
+    FOREIGN KEY (emp_id) REFERENCES employees(id)
+);

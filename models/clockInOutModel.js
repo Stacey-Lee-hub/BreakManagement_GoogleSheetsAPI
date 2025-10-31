@@ -1,4 +1,4 @@
-import pool from '../config/db.js';
+import { db } from '../config/db.js';
 import { sheets, spreadsheetId } from '../config/googleSheets.js';
 
 const sheetName = "Attendance";
@@ -7,7 +7,7 @@ const sheetName = "Attendance";
 // Fx 1: Find emp via MySQL
 export const findEmpId = async (empId) => {
     try {
-        const [rows] = await pool.query("SELECT * FROM employees WHERE id = ?", [empId]);
+        const [rows] = await db.query("SELECT * FROM employees WHERE id = ?", [empId]);
         return rows.length ? rows[0] : null;
     } catch (e) {
         console.error('Error finding empIdM: ', e);

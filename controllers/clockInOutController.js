@@ -44,7 +44,7 @@ export const handleAttendance = async (req, res) => {
 
         if (diffTime < 2) {
             return res.status(400).json({error: `You can only clock out after 2 minutes.Please wait ${Math.ceil(2 - diffTime)} more minutes(s)`});
-        }
+        }   
 
         // If within valid time, update record
         const updatedRecord = await updateRecord(empId, type);
