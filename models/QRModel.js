@@ -45,7 +45,7 @@ export const saveAllEmpQRCode = async () => {
     }
 }
 
-// Fx : Add QR for single employee
+// Fx 2 : Add QR for single employee
 export const saveEmpQRCode = async (empId) => {
     try {
         // get single employee
