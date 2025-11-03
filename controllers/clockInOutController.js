@@ -38,9 +38,18 @@ export const handleAttendance = async (req, res) => {
         }
 
         // Add 2 min buffer
+        // Convert "HH:MM:SS" to local Date today
         const clockInTime = todaysRecord[1];
-        const clockIn = new Date(`1970-01-01T${clockInTime}`);
+        const [h, m, s] = clockInTime.split(":").map(Number);
         const now = new Date();
+        const clockIn = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate(),
+            h,
+            m,
+            s || 0
+        );
         const diffTime = (now - clockIn) / 60000;
 
         if (diffTime < 2) {
@@ -124,9 +133,18 @@ export const batchHandleAttendance = async (req, res) => {
                 }
 
                 // Add 2 min buffer
+                // Convert "HH:MM:SS" to local Date today
                 const clockInTime = todaysRecord[1];
-                const clockIn = new Date(`1970-01-01T${clockInTime}`);
+                const [h, m, s] = clockInTime.split(":").map(Number);
                 const now = new Date();
+                const clockIn = new Date(
+                    now.getFullYear(),
+                    now.getMonth(),
+                    now.getDate(),
+                    h,
+                    m,
+                    s || 0
+                );
                 const diffTime = (now - clockIn) / 60000;
 
                 if (diffTime < 2) {
