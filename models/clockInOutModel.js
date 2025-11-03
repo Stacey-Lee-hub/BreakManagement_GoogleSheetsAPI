@@ -85,7 +85,7 @@ export const updateRecord = async (empId, type) => {
         // Find today's record for this empId + type (no clockout_time)
         const rowIndex = rows.findIndex((r) => 
                                                 r[0] == empId &&
-                                                r[4].toLowerCase() === type.toLowerCase() &&
+                                                r[3].toLowerCase() === type.toLowerCase() &&
                                                 r[5] === today &&
                                                 !r[2]
 
