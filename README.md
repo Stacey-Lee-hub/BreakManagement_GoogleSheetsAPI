@@ -95,7 +95,7 @@ PORT=3000
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=[your_email]
-EMAIL_PASS=[your_password]
+EMAIL_PASS=[your_app_password]
 
 # Google Sheets Configuration
 GOOGLE_SHEET_ID=[your_id]
