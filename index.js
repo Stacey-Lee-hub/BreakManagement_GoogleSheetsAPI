@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import clockInRoutes from './routes/clockInOutRoutes.js';
+import QRRoutes from './routes/QRRoutes.js'
 dotenv.config();
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/api', clockInRoutes);
+app.use('/api', QRRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
